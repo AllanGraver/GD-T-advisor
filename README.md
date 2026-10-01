@@ -1,17 +1,10 @@
-# GD&T Engineer v2
+# GD&T Engineer v3
 
-Komplet React/Vite MVP med udvidet symbolbibliotek, symbol-sammenligning, Design Advisor, Datum Builder, FCF Builder, routing, mørkt tema og lokal projektlagring. Ingen virksomhedsnavne eller logoer.
+Komplet React/Vite-app med udvidet Design Advisor, 14 symbolsider, sammenligning, Datum Builder, FCF Builder, projekter og mørkt tema.
 
-## Start
 ```bash
 npm install
 npm run dev
 ```
-Åbn den URL, som Vite viser.
 
-## Build
-```bash
-npm run build
-```
-
-> Beslutningsstøtte, ikke formel standardvalidering. Verificér altid krav mod funktion, gældende standard og målemetode.
+Produktionsbuild: `npm run build`. Appen er beslutningsstøtte og ikke en formel standardvalidering.
