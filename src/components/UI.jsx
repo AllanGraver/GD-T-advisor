@@ -1,0 +1,6 @@
+import { ArrowRight, ChevronRight } from 'lucide-react'
+export function PageHeader({eyebrow,title,description,action}){return <div className="page-header"><div><span className="eyebrow">{eyebrow}</span><h1>{title}</h1><p>{description}</p></div>{action}</div>}
+export function ToolCard({icon,title,description,onClick,badge}){return <button className="tool-card" onClick={onClick}><span className="tool-icon">{icon}</span>{badge&&<span className="badge">{badge}</span>}<h3>{title}</h3><p>{description}</p><span className="card-link">Åbn værktøj <ArrowRight size={16}/></span></button>}
+export function EmptyState({title,text,action}){return <div className="empty"><h3>{title}</h3><p>{text}</p>{action}</div>}
+export function Stepper({current=1}){const steps=['Funktion','Symbol','Datum','FCF'];return <div className="stepper">{steps.map((s,i)=><div key={s} className={i+1<=current?'step active':'step'}><span>{i+1}</span><b>{s}</b>{i<3&&<ChevronRight size={15}/>}</div>)}</div>}
+export function FCFPreview({symbol='⌖',tolerance='0,20',diameter=true,modifier='',datums=[]}){return <div className="fcf" aria-label="Feature control frame"><span>{symbol}</span><span>{diameter?'⌀ ':''}{tolerance}{modifier?` ${modifier}`:''}</span>{datums.filter(Boolean).map((d,i)=><span key={i}>{typeof d==='string'?d:d.label}</span>)}</div>}

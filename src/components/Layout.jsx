@@ -1,0 +1,9 @@
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
+import { Home, Library, GitCompareArrows, Compass, Layers3, PanelTop, FolderKanban, Moon, Sun, Menu, X } from 'lucide-react'
+import { useEffect, useState } from 'react'
+const links=[['/','Hub',Home],['/symbols','Symboler',Library],['/compare','Sammenlign',GitCompareArrows],['/advisor','Advisor',Compass],['/datum-builder','Datumer',Layers3],['/fcf-builder','FCF Builder',PanelTop],['/projects','Projekter',FolderKanban]]
+export default function Layout(){
+ const navigate=useNavigate(); const [open,setOpen]=useState(false); const [dark,setDark]=useState(()=>localStorage.getItem('gdt-theme')==='dark')
+ useEffect(()=>{document.documentElement.dataset.theme=dark?'dark':'light';localStorage.setItem('gdt-theme',dark?'dark':'light')},[dark])
+ return <div className="app-shell"><aside className={open?'sidebar open':'sidebar'}><div className="brand" onClick={()=>{navigate('/');setOpen(false)}}><span className="brand-mark">G</span><span><strong>GD&T Engineer</strong><small>Decision support</small></span></div><nav>{links.map(([to,label,Icon])=><NavLink key={to} to={to} onClick={()=>setOpen(false)} className={({isActive})=>isActive?'active':''}><Icon size={19}/><span>{label}</span></NavLink>)}</nav><div className="sidebar-note"><strong>ISO-GPS MVP</strong><span>Faglige valg skal verificeres mod funktion, måling og gældende standard.</span></div></aside>{open&&<button className="scrim" onClick={()=>setOpen(false)} aria-label="Luk menu"/>}<main><header className="topbar"><button className="icon-btn mobile-menu" onClick={()=>setOpen(!open)}>{open?<X/>:<Menu/>}</button><div className="topbar-title">Geometrisk specifikation</div><button className="icon-btn" onClick={()=>setDark(!dark)} aria-label="Skift tema">{dark?<Sun/>:<Moon/>}</button></header><div className="page"><Outlet/></div></main></div>
+}

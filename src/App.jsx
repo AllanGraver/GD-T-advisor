@@ -1,0 +1,13 @@
+import { Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import HomeHub from './pages/HomeHub'
+import SymbolLibrary from './pages/SymbolLibrary'
+import SymbolDetail from './pages/SymbolDetail'
+import Compare from './pages/Compare'
+import DesignAdvisor from './pages/DesignAdvisor'
+import DatumBuilder from './pages/DatumBuilder'
+import FCFBuilder from './pages/FCFBuilder'
+import Projects from './pages/Projects'
+import ProjectDetail from './pages/ProjectDetail'
+import NotFound from './pages/NotFound'
+export default function App(){return <Routes><Route element={<Layout/>}><Route path="/" element={<HomeHub/>}/><Route path="/symbols" element={<SymbolLibrary/>}/><Route path="/symbols/:id" element={<SymbolDetail/>}/><Route path="/compare" element={<Compare/>}/><Route path="/advisor" element={<DesignAdvisor/>}/><Route path="/datum-builder" element={<DatumBuilder/>}/><Route path="/fcf-builder" element={<FCFBuilder/>}/><Route path="/projects" element={<Projects/>}/><Route path="/projects/:id" element={<ProjectDetail/>}/><Route path="*" element={<NotFound/>}/></Route></Routes>}
