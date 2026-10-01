@@ -1,0 +1,11 @@
+import assert from'node:assert/strict';
+const value=r=>[r.prefix+r.tolerance,r.material,r.extra].filter(Boolean).join(' ');
+const row={prefix:'⌀',tolerance:'0.20',material:'Ⓜ',extra:'',datums:[{name:'A',modifier:''},{name:'B',modifier:'Ⓜ'},{name:'C',modifier:''}]};
+assert.equal(value(row),'⌀0.20 Ⓜ');
+assert.deepEqual(row.datums.map(x=>x.name+x.modifier),['A','BⓂ','C']);
+const composite=[row,{...row,tolerance:'0.10',material:'',datums:[{name:'A',modifier:''},{name:'',modifier:''},{name:'',modifier:''}]}];
+assert.equal(composite.length,2);
+assert.equal(value(composite[1]),'⌀0.10');
+for(const prefix of['','⌀','S⌀','R','SR'])assert.equal(typeof value({...row,prefix}),'string');
+for(const material of['','Ⓜ','Ⓛ','Ⓢ','Ⓟ','Ⓕ','CZ','UF'])assert.ok(value({...row,material}).includes('0.20'));
+console.log('FCF model tests passed: prefixes, modifiers, datums and composite rows');
