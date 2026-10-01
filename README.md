@@ -1,10 +1,10 @@
-# GD&T Engineer v3
+# GD&T Engineer v5
 
-Komplet React/Vite-app med udvidet Design Advisor, 14 symbolsider, sammenligning, Datum Builder, FCF Builder, projekter og mørkt tema.
+React/Vite-app med spørgende hub, Design Advisor, fyldige symbolsider, True Position Calculator, sammenligning, Datum Builder, FCF Builder og projekter.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Produktionsbuild: `npm run build`. Appen er beslutningsstøtte og ikke en formel standardvalidering.
+Build: `npm run build`. Beslutningsstøtte, ikke formel standardvalidering.
